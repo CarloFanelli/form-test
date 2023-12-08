@@ -14,7 +14,6 @@ class FormController extends Controller
      */
     public function index()
     {
-        return view('form.create');
     }
 
     /**
@@ -41,11 +40,13 @@ class FormController extends Controller
         if ($request->privacy == 'on') {
             $val_data['privacy'] = 1;
         }
+
+
         //dd($val_data);
 
         Form::create($val_data);
 
-        return view('Form.create');
+        return to_route('form.create')->with('message', 'data saved! : )');
     }
 
     /**

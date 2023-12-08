@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('email');
             $table->text('message');
             $table->string('file');
-            $table->boolean('privacy')->default(0);
+            $table->boolean('privacy')->default();
             $table->timestamps();
         });
     }

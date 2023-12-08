@@ -22,6 +22,15 @@
             <div class="row pt-3">
                 <div class="col-8 m-auto vh-100">
 
+
+                    @if (session('message'))
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                aria-label="Close"></button>
+                            <strong>OK!</strong> {{ session('message') }}
+                        </div>
+                    @endif
+
                     <h4>insert data here:</h4>
                     <form action="{{ route('form.store') }}" method="post" enctype="multipart/form-data">
                         @csrf

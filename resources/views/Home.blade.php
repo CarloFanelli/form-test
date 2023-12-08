@@ -19,10 +19,12 @@
 
     <main class="bg-light">
         <div class="container">
-            <div class="row my-4">
-                <div class="col-8 m-auto">
+            <div class="row">
+                <div
+                    class="col-8 m-auto vh-100 d-flex flex-column text-center align-items-center justify-content-center">
 
                     <h4>insert data here:</h4>
+                    <a href="{{ route('form.create') }}" class="btn btn-primary">insert your data</a>
                 </div>
             </div>
 

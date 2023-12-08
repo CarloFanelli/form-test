@@ -13,12 +13,12 @@ return new class extends Migration
     {
         Schema::create('forms', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('name')->default('');
             $table->string('surname');
             $table->string('email');
             $table->text('message');
             $table->string('file');
-            $table->boolean('privacy_accepted');
+            $table->boolean('privacy')->default(0);
             $table->timestamps();
         });
     }

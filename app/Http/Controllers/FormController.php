@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreFormRequest;
 use App\Http\Requests\UpdateFormRequest;
 use App\Models\Form;
+use Illuminate\Support\Facades\Storage;
 
 class FormController extends Controller
 {
@@ -13,7 +14,7 @@ class FormController extends Controller
      */
     public function index()
     {
-        //
+        return view('form.create');
     }
 
     /**
@@ -21,7 +22,8 @@ class FormController extends Controller
      */
     public function create()
     {
-        //
+
+        return view('form.create');
     }
 
     /**
@@ -29,7 +31,21 @@ class FormController extends Controller
      */
     public function store(StoreFormRequest $request)
     {
-        //
+        $val_data = $request->validated();
+
+
+        Storage::put('files', $val_data['file']);
+
+
+        //dd($request->privacy);
+        if ($request->privacy == 'on') {
+            $val_data['privacy'] = 1;
+        }
+        //dd($val_data);
+
+        Form::create($val_data);
+
+        return view('Form.create');
     }
 
     /**
